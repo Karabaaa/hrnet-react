@@ -16,6 +16,19 @@ export default function Home() {
 
   const saveEmployee = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (
+      !firstName ||
+      !lastName ||
+      !dateOfBirth ||
+      !startDate ||
+      !street ||
+      !city ||
+      !state ||
+      !zipCode ||
+      !department
+    ) {
+      return;
+    }
     const storedEmployees = localStorage.getItem("employees");
     const employees = storedEmployees ? JSON.parse(storedEmployees) : [];
     const employee = {
@@ -56,6 +69,7 @@ export default function Home() {
           type="text"
           value={firstName}
           onChange={(event) => setFirstName(event.target.value)}
+          required
         />
 
         <label htmlFor="last-name">Last Name</label>
@@ -64,22 +78,25 @@ export default function Home() {
           type="text"
           value={lastName}
           onChange={(event) => setLastName(event.target.value)}
+          required
         />
 
         <label htmlFor="date-of-birth">Date of Birth</label>
         <input
           id="date-of-birth"
-          type="text"
+          type="date"
           value={dateOfBirth}
           onChange={(event) => setDateOfBirth(event.target.value)}
+          required
         />
 
         <label htmlFor="start-date">Start Date</label>
         <input
           id="start-date"
-          type="text"
+          type="date"
           value={startDate}
           onChange={(event) => setStartDate(event.target.value)}
+          required
         />
 
         <fieldset className="address">
@@ -91,6 +108,7 @@ export default function Home() {
             type="text"
             value={street}
             onChange={(event) => setStreet(event.target.value)}
+            required
           />
 
           <label htmlFor="city">City</label>
@@ -99,6 +117,7 @@ export default function Home() {
             type="text"
             value={city}
             onChange={(event) => setCity(event.target.value)}
+            required
           />
 
           <label htmlFor="state">State</label>
@@ -107,7 +126,11 @@ export default function Home() {
             id="state"
             value={state}
             onChange={(event) => setState(event.target.value)}
+            required
           >
+            <option value="" disabled>
+              Select a state
+            </option>
             {states.map((stateOption) => (
               <option
                 key={stateOption.abbreviation}
@@ -124,6 +147,7 @@ export default function Home() {
             type="number"
             value={zipCode}
             onChange={(event) => setZipCode(event.target.value)}
+            required
           />
         </fieldset>
         <label htmlFor="department">Department</label>
@@ -132,12 +156,16 @@ export default function Home() {
           id="department"
           value={department}
           onChange={(event) => setDepartment(event.target.value)}
+          required
         >
-          <option>Sales</option>
-          <option>Marketing</option>
-          <option>Engineering</option>
-          <option>Human Resources</option>
-          <option>Legal</option>
+          <option value="" disabled>
+            Select a department
+          </option>
+          <option value="Sales">Sales</option>
+          <option value="Marketing">Marketing</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Human Resources">Human Resources</option>
+          <option value="Legal">Legal</option>
         </select>
         <button type="submit">Save</button>
       </form>
