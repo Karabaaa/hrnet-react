@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tanstack/react-table": "^9.2.4",
+    "datatables.net-dt": "^3.0.4",
+    "datatables.net-react": "^1.0.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.3"

@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { useState, type SubmitEvent } from "react";
 import states from "../../utils/constants";
+import type { Employee } from "../../types/Employee";
+import "./Home.css";
+import Modal from "../../components/Modal";
 
 export default function Home() {
   const [firstName, setFirstName] = useState("");
@@ -30,8 +33,10 @@ export default function Home() {
       return;
     }
     const storedEmployees = localStorage.getItem("employees");
-    const employees = storedEmployees ? JSON.parse(storedEmployees) : [];
-    const employee = {
+    const employees: Employee[] = storedEmployees
+      ? JSON.parse(storedEmployees)
+      : [];
+    const employee: Employee = {
       firstName: firstName,
       lastName: lastName,
       dateOfBirth: dateOfBirth,
@@ -57,12 +62,12 @@ export default function Home() {
   };
 
   return (
-    <div className="container">
+    <main className="home-page ">
       <div className="navigation">
         <NavLink to="/employee-list">View Current Employees</NavLink>
       </div>
       <h2>Create Employee</h2>
-      <form onSubmit={saveEmployee} id="create-employee">
+      <form onSubmit={saveEmployee} className="employee-form">
         <label htmlFor="first-name">First Name</label>
         <input
           id="first-name"
@@ -144,7 +149,8 @@ export default function Home() {
           <label htmlFor="zip-code">Zip Code</label>
           <input
             id="zip-code"
-            type="number"
+            type="text"
+            pattern="[0-9]*"
             value={zipCode}
             onChange={(event) => setZipCode(event.target.value)}
             required
@@ -169,11 +175,11 @@ export default function Home() {
         </select>
         <button type="submit">Save</button>
       </form>
-      {showConfirmation && (
-        <div id="confirmation" className="modal">
-          Employee Created!
-        </div>
-      )}
-    </div>
+      <Modal
+        isVisible={showConfirmation}
+        text="Employee Created!"
+        onClose={() => setShowConfirmation(false)}
+      />
+    </main>
   );
 }

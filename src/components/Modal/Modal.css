@@ -1,0 +1,34 @@
+.modal {
+  width: min(90vw, 400px);
+  padding: 2rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgb(15 23 42 / 25%);
+  text-align: center;
+}
+
+.modal::backdrop {
+  background-color: rgb(15 23 42 / 55%);
+}
+
+.modal p {
+  margin: 0 0 1.5rem;
+  color: var(--color-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.modal button {
+  padding: 0.6rem 1.25rem;
+  color: white;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: var(--color-primary-dark);
+}

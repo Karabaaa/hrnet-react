@@ -1,10 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
+import type { Employee } from "../../types/Employee";
+import EmployeeTable from "../../components/EmployeeTable/EmployeeTable";
+import "./EmployeeList.css";
 
 export default function EmployeeList() {
   const storedEmployees = localStorage.getItem("employees");
-  const parsedEmployees = storedEmployees ? JSON.parse(storedEmployees) : [];
-  console.log(parsedEmployees);
+  const employees: Employee[] = storedEmployees
+    ? JSON.parse(storedEmployees)
+    : [];
+  console.log(employees);
+
   useEffect(() => {
     document.title = "HRnet - Current Employees";
 
@@ -14,10 +20,10 @@ export default function EmployeeList() {
   }, []);
 
   return (
-    <div id="employee-div" className="container">
+    <main className="employee-list-page">
       <h1>Current Employees</h1>
-      <table id="employee-table" className="display"></table>
-      <NavLink to="/">Home</NavLink>
-    </div>
+      <EmployeeTable employees={employees} />
+      <NavLink to="/">Home </NavLink>
+    </main>
   );
 }

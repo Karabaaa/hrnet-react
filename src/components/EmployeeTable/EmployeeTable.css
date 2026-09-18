@@ -1,0 +1,159 @@
+.employee-table-wrapper {
+  width: min(94vw, 1200px);
+  padding: 1.5rem;
+  overflow-x: auto;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 8%);
+}
+
+/* Tableau */
+
+table.dataTable.employee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.dataTable.employee-table thead th {
+  padding: 0.9rem 1rem;
+  color: var(--color-heading);
+  background-color: #f1f5f9;
+  border-bottom: 2px solid var(--color-border);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+}
+
+table.dataTable.employee-table tbody tr {
+  height: 3.5rem;
+}
+
+table.dataTable.employee-table tbody tr:hover {
+  background-color: var(--color-row-hover);
+}
+
+table.dataTable.employee-table tbody td {
+  height: 3.5rem;
+  padding: 0.9rem 1rem;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+table.dataTable.employee-table tbody td.zip-code-column,
+table.dataTable.employee-table thead th.zip-code-column {
+  text-align: left;
+}
+
+/* Disposition des contrôles */
+
+.dt-container .dt-layout-row {
+  margin: 1rem 0;
+}
+
+.dt-container .dt-layout-row:first-child {
+  align-items: center;
+}
+
+/* Recherche */
+
+.dt-container .dt-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dt-container .dt-search label {
+  display: inline;
+  margin: 0;
+}
+
+.dt-container .dt-search input {
+  min-height: 38px;
+  margin: 0;
+  padding: 0.45rem 0.65rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.dt-container .dt-search input:focus {
+  border-color: var(--color-primary);
+  outline: 3px solid rgb(37 99 235 / 15%);
+}
+
+/* Nombre de résultats par page */
+
+.dt-container .dt-length {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dt-container .dt-length label {
+  margin: 0;
+}
+
+.dt-container .dt-length select {
+  min-height: 38px;
+  padding: 0.4rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+
+/* Informations sous le tableau */
+
+.dt-container .dt-info {
+  color: var(--color-muted);
+}
+
+/* Pagination */
+
+.dt-container .dt-paging .dt-paging-button {
+  margin: 0 0.15rem;
+  border-radius: 6px !important;
+}
+
+.dt-container .dt-paging .dt-paging-button.current {
+  color: white !important;
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+}
+
+.dt-container .dt-paging .dt-paging-button:hover {
+  color: white !important;
+  background: var(--color-primary-dark) !important;
+  border-color: var(--color-primary-dark) !important;
+}
+
+.dt-container .dt-paging .dt-paging-button.disabled,
+.dt-container .dt-paging .dt-paging-button.disabled:hover {
+  color: var(--color-muted) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  cursor: default;
+}
+
+/* Petits écrans */
+
+@media (max-width: 767px) {
+  .employee-table-wrapper {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .dt-container .dt-layout-row {
+    gap: 1rem;
+  }
+
+  .dt-container .dt-search,
+  .dt-container .dt-length {
+    justify-content: center;
+  }
+}
