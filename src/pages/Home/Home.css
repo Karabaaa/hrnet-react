@@ -3,19 +3,112 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .navigation {
-  margin-bottom: 1rem;
+  width: min(100%, 560px);
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+.navigation a {
+  font-size: 0.925rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.navigation a::after {
+  content: " →";
+}
+
+.home-page h2 {
+  margin: 0 0 1.5rem;
+  color: var(--color-heading);
+  font-size: clamp(2rem, 6vw, 2.75rem);
+  letter-spacing: -0.04em;
+}
+
+.employee-form {
+  width: min(100%, 560px);
+  padding: 2rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
 }
 
 .address {
-  margin-top: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.address legend {
+  padding: 0 0.5rem;
+  color: var(--color-heading);
+  font-weight: 700;
 }
 
 .employee-form label {
   display: block;
   margin-top: 1rem;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.45rem;
+  color: var(--color-heading);
+  font-size: 0.875rem;
+  font-weight: 650;
+}
+
+.employee-form input,
+.employee-form select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0.65rem 0.75rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.employee-form input:focus,
+.employee-form select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(79 70 229 / 14%);
+}
+
+.employee-form > button[type="submit"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  min-height: 46px;
+  margin-top: 1.75rem;
+  color: white;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.employee-form > button[type="submit"]:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.employee-form > button[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 600px) {
+  .home-page {
+    padding: 2rem 1rem;
+  }
+
+  .employee-form {
+    padding: 1.25rem;
+  }
 }

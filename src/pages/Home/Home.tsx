@@ -3,7 +3,7 @@ import { useState, type SubmitEvent } from "react";
 import states from "../../utils/constants";
 import type { Employee } from "../../types/Employee";
 import "./Home.css";
-import Modal from "../../components/Modal";
+import Modal from "../../components/Modal/Modal";
 
 export default function Home() {
   const [firstName, setFirstName] = useState("");
@@ -177,8 +177,11 @@ export default function Home() {
       </form>
       <Modal
         isVisible={showConfirmation}
-        text="Employee Created!"
+        title="Employee created !"
+        text="The employee was successfully added to the directory."
         onClose={() => setShowConfirmation(false)}
+        onActionPress={() => setShowConfirmation(false)}
+        onActionText="Fermer"
       />
     </main>
   );

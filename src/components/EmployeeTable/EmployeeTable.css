@@ -4,8 +4,9 @@
   overflow-x: auto;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgb(15 23 42 / 8%);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  text-align: left;
 }
 
 /* Tableau */
@@ -18,7 +19,7 @@ table.dataTable.employee-table {
 table.dataTable.employee-table thead th {
   padding: 0.9rem 1rem;
   color: var(--color-heading);
-  background-color: #f1f5f9;
+  background-color: var(--color-primary-soft);
   border-bottom: 2px solid var(--color-border);
   font-size: 0.875rem;
   font-weight: 700;
@@ -100,11 +101,13 @@ table.dataTable.employee-table thead th.zip-code-column {
 
 .dt-container .dt-length select {
   min-height: 38px;
-  padding: 0.4rem;
+  margin: 0.2rem 0;
+  padding: 0.2rem 0.4rem;
   color: var(--color-text);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 6px;
+  cursor: pointer;
 }
 
 /* Informations sous le tableau */
@@ -118,18 +121,6 @@ table.dataTable.employee-table thead th.zip-code-column {
 .dt-container .dt-paging .dt-paging-button {
   margin: 0 0.15rem;
   border-radius: 6px !important;
-}
-
-.dt-container .dt-paging .dt-paging-button.current {
-  color: white !important;
-  background: var(--color-primary) !important;
-  border-color: var(--color-primary) !important;
-}
-
-.dt-container .dt-paging .dt-paging-button:hover {
-  color: white !important;
-  background: var(--color-primary-dark) !important;
-  border-color: var(--color-primary-dark) !important;
 }
 
 .dt-container .dt-paging .dt-paging-button.disabled,
