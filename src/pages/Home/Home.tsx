@@ -191,7 +191,7 @@ export default function Home() {
         text="The employee was successfully added to the directory."
         onClose={() => setShowConfirmation(false)}
         onActionPress={() => setShowConfirmation(false)}
-        onActionText="Fermer"
+        onActionText="Close"
         //   className="employee-modal"
       />
     </main>
