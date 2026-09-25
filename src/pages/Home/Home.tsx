@@ -3,7 +3,9 @@ import { useState, type SubmitEvent } from "react";
 import states from "../../utils/constants";
 import type { Employee } from "../../types/Employee";
 import "./Home.css";
-import Modal from "../../components/Modal/Modal";
+//import Modal from "../../components/Modal/Modal";
+import { Modal } from "@karabaaa/simple-modal";
+import "@karabaaa/simple-modal/style.css";
 
 export default function Home() {
   const [firstName, setFirstName] = useState("");
@@ -175,6 +177,14 @@ export default function Home() {
         </select>
         <button type="submit">Save</button>
       </form>
+      {/* <Modal
+        isVisible={showConfirmation}
+        title="Employee created !"
+        text="The employee was successfully added to the directory."
+        onClose={() => setShowConfirmation(false)}
+        onActionPress={() => setShowConfirmation(false)}
+        onActionText="Fermer"
+      />*/}
       <Modal
         isVisible={showConfirmation}
         title="Employee created !"
@@ -182,6 +192,7 @@ export default function Home() {
         onClose={() => setShowConfirmation(false)}
         onActionPress={() => setShowConfirmation(false)}
         onActionText="Fermer"
+        //   className="employee-modal"
       />
     </main>
   );

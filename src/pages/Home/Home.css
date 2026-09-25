@@ -103,6 +103,15 @@
   transform: translateY(1px);
 }
 
+/*
+.employee-modal {
+  --simple-modal-primary-color: black;
+  --simple-modal-primary-hover-color: darkgray;
+  --simple-modal-background-color: lightgray;
+  --simple-modal-font-family: Inter, system-ui, sans-serif;
+}
+*/
+
 @media (max-width: 600px) {
   .home-page {
     padding: 2rem 1rem;

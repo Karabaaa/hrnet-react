@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@karabaaa/simple-modal": "^1.0.1",
     "datatables.net-dt": "^3.0.4",
     "datatables.net-react": "^1.0.2",
     "react": "^19.2.8",
