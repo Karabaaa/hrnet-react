@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useState, type SubmitEvent } from "react";
+import { useEffect, useState, type SubmitEvent } from "react";
 import states from "../../utils/constants";
 import type { Employee } from "../../types/Employee";
 import "./Home.css";
@@ -18,6 +18,10 @@ export default function Home() {
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
+
+  useEffect(() => {
+    document.title = "HRnet | Create Employee";
+  }, []);
 
   const saveEmployee = (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -68,7 +72,7 @@ export default function Home() {
       <div className="navigation">
         <NavLink to="/employee-list">View Current Employees</NavLink>
       </div>
-      <h2>Create Employee</h2>
+      <h1>Create Employee</h1>
       <form onSubmit={saveEmployee} className="employee-form">
         <label htmlFor="first-name">First Name</label>
         <input

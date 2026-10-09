@@ -22,7 +22,7 @@
   content: " →";
 }
 
-.home-page h2 {
+.home-page h1 {
   margin: 0 0 1.5rem;
   color: var(--color-heading);
   font-size: clamp(2rem, 6vw, 2.75rem);

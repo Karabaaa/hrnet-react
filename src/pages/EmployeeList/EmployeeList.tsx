@@ -9,21 +9,16 @@ export default function EmployeeList() {
   const employees: Employee[] = storedEmployees
     ? JSON.parse(storedEmployees)
     : [];
-  console.log(employees);
 
   useEffect(() => {
-    document.title = "HRnet - Current Employees";
-
-    return () => {
-      document.title = "HRnet";
-    };
+    document.title = "HRnet | Current Employees";
   }, []);
 
   return (
     <main className="employee-list-page">
       <h1>Current Employees</h1>
       <EmployeeTable employees={employees} />
-      <NavLink to="/">Home </NavLink>
+      <NavLink to="/">Home</NavLink>
     </main>
   );
 }

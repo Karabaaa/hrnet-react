@@ -46,3 +46,14 @@ a {
 a:hover {
   color: var(--color-primary-dark);
 }
+
+.page-loading {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100svh;
+  place-items: center;
+}
+
+.page-loading p {
+  margin: 0;
+}
