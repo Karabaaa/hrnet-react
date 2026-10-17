@@ -1,14 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
-import type { Employee } from "../../types/Employee";
 import EmployeeTable from "../../components/EmployeeTable/EmployeeTable";
 import "./EmployeeList.css";
+import { useEmployees } from "../../context/useEmployees";
 
 export default function EmployeeList() {
-  const storedEmployees = localStorage.getItem("employees");
-  const employees: Employee[] = storedEmployees
-    ? JSON.parse(storedEmployees)
-    : [];
+  const { employees } = useEmployees();
 
   useEffect(() => {
     document.title = "HRnet | Current Employees";

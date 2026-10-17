@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { useEffect, useState, type SubmitEvent } from "react";
 import states from "../../utils/constants";
-import type { Employee } from "../../types/Employee";
+import type { NewEmployee } from "../../types/Employee";
 import "./Home.css";
 //import Modal from "../../components/Modal/Modal";
 import { Modal } from "@karabaaa/simple-modal";
 import "@karabaaa/simple-modal/style.css";
+import { useEmployees } from "../../context/useEmployees";
 
 export default function Home() {
   const [firstName, setFirstName] = useState("");
@@ -18,6 +19,7 @@ export default function Home() {
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const { addEmployee } = useEmployees();
 
   useEffect(() => {
     document.title = "HRnet | Create Employee";
@@ -38,11 +40,8 @@ export default function Home() {
     ) {
       return;
     }
-    const storedEmployees = localStorage.getItem("employees");
-    const employees: Employee[] = storedEmployees
-      ? JSON.parse(storedEmployees)
-      : [];
-    const employee: Employee = {
+
+    const newEmployee: NewEmployee = {
       firstName: firstName,
       lastName: lastName,
       dateOfBirth: dateOfBirth,
@@ -53,8 +52,7 @@ export default function Home() {
       state: state,
       zipCode: zipCode,
     };
-    employees.push(employee);
-    localStorage.setItem("employees", JSON.stringify(employees));
+    addEmployee(newEmployee);
     setFirstName("");
     setLastName("");
     setDateOfBirth("");

@@ -1,4 +1,5 @@
 export interface Employee {
+  id: string;
   firstName: string;
   lastName: string;
   dateOfBirth: string;
@@ -9,3 +10,6 @@ export interface Employee {
   zipCode: string;
   department: string;
 }
+
+export type NewEmployee = Omit<Employee, "id">;
+export type EmployeeUpdates = Partial<Omit<Employee, "id">>;

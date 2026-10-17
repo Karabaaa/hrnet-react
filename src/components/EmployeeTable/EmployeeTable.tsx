@@ -33,6 +33,7 @@ export default function EmployeeTable({ employees }: EmployeeTableProps) {
         columns={columns}
         className="employee-table"
         options={{
+          rowId: "id",
           searching: true,
           ordering: true,
           paging: true,
